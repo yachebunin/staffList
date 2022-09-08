@@ -1,13 +1,13 @@
 <template>
   <div class="table">
-    <Titles @filter="$emit('filter')" />
+    <Titles @filter="filter" />
     <Employee
       @set-change-index="setChangeIndex"
       :employee="employee"
       :staff="staff"
       :index="index"
       v-for="(employee, index) in staff"
-      :key="'i-' + index"
+      :key="employee.id"
     />
   </div>
 </template>
@@ -28,6 +28,9 @@ export default {
     setChangeIndex(index) {
       this.$emit("set-change-index", index);
     },
+    filter(filt) {
+      this.$emit('filter', filt)
+    }
   },
 };
 </script>

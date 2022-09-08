@@ -1,10 +1,12 @@
 <template>
   <div class="titles">
-    <div @click="$emit('filter')" class="filter">filter</div>
-    <div class="name">ФИО</div>
-    <div class="company">Компания</div>
-    <div class="department">Направление</div>
-    <div class="position">Должность</div>
+    <div @click="$emit('filter', 'number')">#</div>
+    <div @click="$emit('filter', 'first_name')">Имя</div>
+    <div @click="$emit('filter', 'last_name')">Фамилия</div>
+    <div @click="$emit('filter', 'email')">email</div>
+    <div @click="$emit('filter', 'profile_link')">Ссылка</div>
+    <div @click="$emit('filter', 'pay_status')">Оплатил</div>
+    <div @click="$emit('filter', 'username')">Логин</div>
     <div></div>
   </div>
 </template>
@@ -27,14 +29,17 @@ export default {
 
 .titles > div {
   width: 16.6%;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.titles > div:not(:last-child) {
+  cursor: pointer
 }
 
 .titles > div:first-child {
   width: 7%;
-}
-
-.filter:hover {
-  font-weight: bold;
-  cursor: pointer;
+  cursor: none;
 }
 </style>

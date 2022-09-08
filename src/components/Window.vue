@@ -1,20 +1,28 @@
 <template>
   <div class="window">
     <div class="label">
-      <span>ФИО: </span>
-      <input v-model="employeeData.name" class="name" type="text" />
+      <span>email: </span>
+      <input v-model="employeeData.email" class="email" type="text" />
     </div>
     <div class="label">
-      <span>Компания: </span>
-      <input v-model="employeeData.company" class="company" type="text" />
+      <span>Имя: </span>
+      <input v-model="employeeData.first_name" class="first_name" type="text" />
     </div>
     <div class="label">
-      <span>Направление: </span>
-      <input v-model="employeeData.department" class="department" type="text" />
+      <span>Фамилия: </span>
+      <input v-model="employeeData.last_name" class="last_name" type="text" />
     </div>
     <div class="label">
-      <span>Должность: </span>
-      <input v-model="employeeData.position" class="position" type="text" />
+      <span>Логин: </span>
+      <input v-model="employeeData.username" class="username" type="text" />
+    </div>
+    <div class="label">
+      <span>Ссылка: </span>
+      <input v-model="employeeData.profile_link" class="profile_link" type="text" />
+    </div>
+    <div class="label">
+      <span>Оплатил(а): </span>
+      <input v-model="employeeData.pay_status" type="checkbox" class="profile_link" />
     </div>
 
     <button @click="action(employeeData)" class="done">Готово</button>
@@ -34,10 +42,12 @@ export default {
   data() {
     return {
       employeeData: {
-        name: "",
-        company: "",
-        department: "",
-        position: "",
+        email: "",
+        first_name: "",
+        last_name: "",
+        username: "",
+        profile_link: "",
+        pay_status: false
       },
     };
   },
